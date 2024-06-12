@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  prop-central-netcore:
+    image: ${DOCKER_REGISTRY-}propcentralnetcore
+    build:
+      context: .
+      dockerfile: prop-central-netcore/Dockerfile
