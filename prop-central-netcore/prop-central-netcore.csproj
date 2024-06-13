@@ -30,6 +30,7 @@
     <None Remove="Data\Entities\PopularPlaces\" />
     <None Remove="Dto\PopularPlaces\" />
     <None Remove="Data\Entities\Profile\" />
+    <None Remove="Dto\Flats\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -68,5 +69,6 @@
     <Folder Include="Data\Entities\PopularPlaces\" />
     <Folder Include="Dto\PopularPlaces\" />
     <Folder Include="Data\Entities\Profile\" />
+    <Folder Include="Dto\Flats\" />
   </ItemGroup>
 </Project>
