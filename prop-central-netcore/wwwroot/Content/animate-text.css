@@ -1,0 +1,47 @@
+﻿
+
+    .wrappr h1 {
+        padding: 0;
+        margin: 0;
+        color: #fff;
+        text-shadow: 0 2px 0 rgba(0,0,0,5);
+        font-size: 60px;
+    }
+
+    .wrappr p {
+        color: #fff;
+        font-size: 18px;
+        margin: 0;
+        line-height: 35px;
+    }
+
+.spans:before {
+    content: '';
+    animation: animate infinite 16s;
+}
+
+@keyframes animate {
+    0% {
+        content: 'Zweli';
+    }
+
+    20% {
+        content: 'Nkuna';
+    }
+
+    40% {
+        content: 'Maxwell';
+    }
+
+    60% {
+        content: 'Joel';
+    }
+
+    80% {
+        content: 'Percy';
+    }
+
+    100% {
+        content: 'Penuel';
+    }
+}

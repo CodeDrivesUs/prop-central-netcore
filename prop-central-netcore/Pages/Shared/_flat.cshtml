@@ -1,0 +1,26 @@
+﻿@model prop_central_netcore.Dto.Flats.FlatViewDto
+@using prop_central_netcore.Shared.Configuration
+
+<div class="col-lg-4 col-md-6">
+    <div class="single_place">
+        <div class="thumb">
+
+            <img src="@AppSettings.PhotoBaseUrl@Model.ImageUrl" alt="" height="240">
+            <a href="/Home/ViewFlat?FlatId=@Model.Id" class="prise">R @Model.RentingPrice</a>
+        </div>
+        <div class="place_info">
+            <a href="/Home/View?id=@Model.Id"><h3>@Model.Name flatnamr</h3></a>
+            <p><i class="glyphicon glyphicon-map-marker text-danger"></i> @*<span>@item.getlocation(item.Flatid)</span>*@Berea </p>
+            <div class="rating_days d-flex justify-content-between">
+                <span class="d-flex justify-content-center align-items-center">
+                    <i class="fa fa-star"></i>
+                    <a href="#">@*@item.countstars(item.Flatid)*@</a>
+                </span>
+                <div class="days">
+                    <i class="fa fa-clock-o"></i>
+                    <a href="#">5 Days</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

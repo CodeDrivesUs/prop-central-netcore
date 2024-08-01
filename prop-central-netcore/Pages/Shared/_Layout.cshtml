@@ -1,52 +1,224 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - prop_central_netcore</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/prop_central_netcore.styles.css" asp-append-version="true" />
+
+    <title>@ViewBag.Title Prop-Central SA</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/BookingOverLay.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/themify-icons.css">
+    <link rel="stylesheet" href="~/css/nice-select.css">
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/gijgo.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/slicknav.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="~/css/style.css">
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">prop_central_netcore</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+    <div class="divLoading" style="display:none">
+        <div class="Panel-Loading-BG">
+        </div>
+        <div id="Panel-Loading">
+            <div>
+
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+        </div>
+
+    </div>
+    <div id="_main">
+        <partial name="_navbar"/>
+        <main>
             @RenderBody()
         </main>
-    </div>
+        <footer class="footer">
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-md-6 col-lg-5 ">
+                            <div class="footer_widget">
+                                <div class="footer_logo">
+                                    <a href="#">
+                                        <img height="95" src="~/Content/Images/logos/white_logo.png" />
+                                    </a>
+                                </div>
+                                <p>
+                                    We exist to provide solutions for students to easily find the better and
+                                    conducive student accommodation of their choice according to their individual
+                                    needs without any hustle.
+                                </p>
+                                <p>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - prop_central_netcore - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                                    <a href="#">+27 65 126 2581</a> <br>
+                                    <a href="#">Info@prop-centralsa.co.za</a>
+                                </p>
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="https://facebook.com/Prop-Central-SA-104137578377596">
+                                                <i class="ti-facebook"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="https://www.instagram.com/prop_centralsa/">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-lg-3">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Company
+                                </h3>
+                                <ul class="links">
+                                    <li><a href="/flsts/Create">Become a Landlord</a></li>
+                                    @*<li><a href="/RoomMates/Index">Find Room Mate</a></li>*@
+                                    <li><a href="/Home/FindFlat"> Find Flat</a></li>
+                                    <li><a href="~/Content/Files/prop-centralsa_userManual.pdf" download> Landlord User Manual</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-lg-4">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Popular Flat Locations
+                                </h3>
+                                <ul class="links" id="popularFlats">
+                                </ul>
+                            </div>
+                        </div>
+                        @*<div class="col-xl-3 col-md-6 col-lg-3">
+                                <div class="footer_widget">
+                                    <h3 class="footer_title">
+                                        Instagram
+                                    </h3>
+                                    <div class="instagram_feed">
+                                        <div class="single_insta">
+                                            <a href="#">
+                                                <img src="~/img/instagram/1.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="single_insta">
+                                            <a href="#">
+                                                <img src="~/img/instagram/2.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="single_insta">
+                                            <a href="#">
+                                                <img src="~/img/instagram/3.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="single_insta">
+                                            <a href="#">
+                                                <img src="~/img/instagram/4.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="single_insta">
+                                            <a href="#">
+                                                <img src="~/img/instagram/5.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="single_insta">
+                                            <a href="#">
+                                                <img src="~/img/instagram/6.png" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="copy-right_text">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <p class="copy_right text-center">
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> Prop-Central SA
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- Modal -->
+        <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="serch_form">
+                        <form action="/Home/FindFlat" method="post">
+                            <input type="text" name="Search" id="Search" required placeholder="Search">
+                            <button type="submit">search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+    </div>
+    <div id="booking_template">
+
+    </div>
+    <!-- JS here -->
+    <script src="~/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/ajax-form.js"></script>
+    <script src="~/js/waypoints.min.js"></script>
+    <script src="~/js/jquery.counterup.min.js"></script>
+    <script src="~/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/js/scrollIt.js"></script>
+    <script src="~/js/jquery.scrollUp.min.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/nice-select.min.js"></script>
+    <script src="~/js/jquery.slicknav.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/gijgo.min.js"></script>
+    <script src="~/js/slick.min.js"></script>
+
+    <!--contact js-->
+    <script src="~/js/contact.js"></script>
+    <script src="~/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/js/jquery.form.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/mail-script.js"></script>
+
+
+    <script src="~/js/main.js"></script>
+    @RenderSection("scripts", required: false)
+    <script>$(function () {
+    $.get('/api/PopularPlaces/GetAllPopularPlaces', function (response) {
+        $(response).each(function (Index, value) {
+            console.log(value)
+                    $('#popularFlats').append(`<li><a href="/Home/PopularPlace/?placeId=${value.id}">${value.placeName}</a></li>`);
+                });
+            });
+        });</script>
+    <script src="~/Assert/FlatApplication/js/jquery.steps.js"></script>
+    <script src="~/Assert/FlatApplication/js/main.js"></script>
 </body>
 </html>

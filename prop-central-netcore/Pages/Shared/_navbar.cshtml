@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Identity
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="~/Content/Images/logos/main_logo.png" height="30" alt="main logo" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                                                                <li><a href="/flats/FlatApplication">Become a Landlord</a></li>
+                                        <li><a class="" href="/Home/Findflat">Find Flat</a></li>
+                                       @if (User.Identity.IsAuthenticated)
+                                                                        {
+                                                                            <li><a href="/Tenant/Index">DashBoard</a></li>
+                                                                            }
+                                                                            <li>
+                                                <a href="#">Room Mate <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="/RoomMates/Index">Find Room Mate</a></li>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <li><a href="/RoomMates/Create">Request Room Mate</a></li>
+                                                    }
+                                                </ul>
+                                            </li>
+
+                                                                         @{ if (User.Identity.IsAuthenticated)
+                                                                                {
+
+                                                                                    <li>
+                                                                                        <a href="#">@User.Claims.Where(x => x.Type == "name").FirstOrDefault().Value<i class="ti-angle-down"></i></a>
+                                                                                        <ul class="submenu">
+
+                                                                                            <li><a href="/profile/MyProfile">Profile</a></li>
+                                                                                            <li><a href="/Tenant/Index">DashBoard</a></li>
+                                                                                            <li><a href="/manage/Index">Settings</a></li>
+                                                                                            <li class="divider"></li>
+                                                                                            <li class="nav-item">
+                                                                                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                                                                                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                                                                                </form>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                }
+                                                                                else
+                                                                                {
+
+                                                                                    <li>
+                                                                                        <a href="#">Account <i class="ti-angle-down"></i></a>
+                                                                                        <ul class="submenu">
+                                                                                            <li class=""><a class="" href='@Url.Action("Register", "Account")'><span class="">Create Account</span></a></li>
+                                                                                            <li class=""><a class="" href='@Url.Action("Login", "Account")'><span class="">Login</span></a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                }
+                                                                            }
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                            <div class="social_wrap d-flex align-items-center justify-content-end">
+                                <div class="number">
+                                    <p> <i class="fa fa-phone"></i>+27 65 126 2581</p>
+                                </div>
+                                <div class="social_links d-none d-xl-block">
+                                    <ul>
+                                        <li><a href="https://www.instagram.com/prop_centralsa/"> <i class="fa fa-instagram"></i> </a></li>
+
+                                        <li><a href="https://facebook.com/Prop-Central-SA-104137578377596"> <i class="fa fa-facebook"></i> </a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seach_icon">
+                            <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>

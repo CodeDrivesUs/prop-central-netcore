@@ -2,11 +2,12 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using prop_central_netcore.Data.EntityFrameworkCore;
+using prop_central_netcore.Data.Interfaces;
 
 namespace prop_central_netcore.Data.Repositories
 {
-	public class ProfileRepository
-	{
+	public class ProfileRepository : IProfileRepository
+    {
 
         public async Task AddProFile(Guid UserId, CancellationToken cancellationToken = default)
         {
@@ -41,7 +42,7 @@ namespace prop_central_netcore.Data.Repositories
             }
         }
 
-        public async Task AUpdateProFile(Profile model, CancellationToken cancellationToken = default)
+        public async Task UpdateProFile(Profile model, CancellationToken cancellationToken = default)
         {
             var parameters = new SqlParameter[]
             {

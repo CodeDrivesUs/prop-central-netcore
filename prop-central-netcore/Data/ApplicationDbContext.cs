@@ -1,9 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using prop_central_netcore.Shared.Configuration;
 
 namespace prop_central_netcore.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationUser : IdentityUser
+{
+    public string? FirstName { get; internal set; }
+    public string? LastName { get; internal set; }
+}
+
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public ApplicationDbContext()
     {
@@ -13,7 +21,7 @@ public class ApplicationDbContext : IdentityDbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server=sql.bsite.net\\MSSQL2016;Initial Catalog=democodedrivesus_main;User ID=democodedrivesus_main;Password=Zweli@1;Encrypt=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(AppSettings.DbConnectionString);
         }
     }
 

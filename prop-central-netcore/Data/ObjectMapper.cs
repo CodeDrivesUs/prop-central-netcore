@@ -1,9 +1,13 @@
 ﻿using System;
 using AutoMapper;
 using prop_central_netcore.Data.Entities.Amenities;
+using prop_central_netcore.Data.Entities.Flat;
 using prop_central_netcore.Data.Entities.PopularPlaces;
+using prop_central_netcore.Data.Entities.RoomType;
 using prop_central_netcore.Dto.Amenities;
+using prop_central_netcore.Dto.Flats;
 using prop_central_netcore.Dto.PopularPlaces;
+using prop_central_netcore.Dto.RoomType;
 
 namespace prop_central_netcore.Data
 {
@@ -19,6 +23,18 @@ namespace prop_central_netcore.Data
                 cfg.CreateMap<PopularPlaces, PopularPlacesDto>().ReverseMap();
                 cfg.CreateMap<Province, ProvinceDto>().ReverseMap();
                 cfg.CreateMap<Surbub, SurbubDto>().ReverseMap();
+                cfg.CreateMap<AddLandLord, AddLandLordDto>().ReverseMap();
+                cfg.CreateMap<AddToFlatHistory, AddToFlatHistory>().ReverseMap();
+                cfg.CreateMap<CreateUpdateFlat, CreateUpdateFlatDto>().ReverseMap();
+                cfg.CreateMap<Flat, FlatDto>().ReverseMap();
+                cfg.CreateMap<FlatRoomsAmenities, FlatAmenitiesRoomsDto>().ReverseMap();
+                cfg.CreateMap<FlatRoomTypes, FlatRoomTypesDto>().ReverseMap();
+                cfg.CreateMap<FlatView, FlatViewDto>().ReverseMap();
+                cfg.CreateMap<SearchFlat, SearchFlatDto>().ReverseMap();
+                cfg.CreateMap<RoomType, RoomTypeDto>().ReverseMap();
+
+
+
             });
 
             var mapper = config.CreateMapper();

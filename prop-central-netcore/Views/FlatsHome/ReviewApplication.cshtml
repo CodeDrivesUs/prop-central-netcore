@@ -1,0 +1,74 @@
+﻿@model prop_central_netcore.Dto.Flats.FullFlatApplicationDto
+
+@{
+    Layout = null;
+}
+<div>
+    <h4>Full Flat Application Details</h4>
+    <hr />
+    <div>
+        <div style="padding:5px;">
+            <p><strong>Flat Name :</strong> @Model.FlatName</p>
+            <p><strong>Flat Email :</strong> @Model.Email</p>
+            <p><strong>TelePhone :</strong> @Model.PhoneNumber</p>
+            <p><strong>Address :</strong> @Model.Address </p>
+            <p><strong>Average Renting Price :</strong>R @Model.Rent </p>
+            <p><strong>Average Deposit Price :</strong>R @Model.Deposit </p>
+        </div>
+        @if (Model._listamenities.ToList().Count != 0)
+        {
+            <div style="margin:5px;">
+                <table class="amenity-table">
+                    <tr>
+                        <td>
+                            <p class="amenity-table-p"><strong>Amenities:</strong></p>
+                        </td>
+                        <td>
+                            <ul>
+                                @foreach (var item in Model._listamenities.ToList())
+                                {
+                                    <li>@item.Name</li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+        }
+        <div style="margin:5px;">
+            <p><strong>Room Types:</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                        <th>Renting Price</th>
+                        <th>Deposit Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model._listflatroomtypes.ToList())
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td></td>
+                            <td>R @item.Rent</td>
+                            <td>R @item.Deposit</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<style>
+    .amenity-table {
+        padding: 5px;
+    }
+
+    .amenity-table-p {
+        margin-top: -5px;
+    }
+</style>

@@ -7,7 +7,7 @@ namespace prop_central_netcore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PopularPlacesController
+    public class PopularPlacesController : ControllerBase
 	{
 		private readonly IPopularPlacesService _popularPlacesService;
 

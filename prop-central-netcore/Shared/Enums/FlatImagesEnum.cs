@@ -3,9 +3,9 @@ namespace prop_central_netcore.Shared.Enums
 {
     public enum FlatImagesEnum
     {
-        ProfilePicture,
-        Gallery,
-        Room
+        ProfilePicture=0,
+        Gallery=1,
+        Room =2
     }
 }
 

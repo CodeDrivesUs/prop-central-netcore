@@ -1,0 +1,146 @@
+﻿@page
+@model FlatApplicationModel
+@{
+    ViewData["Title"] = "Become Landlord";
+}
+
+
+<style>
+    .destination_info h3 {
+        text-align: start;
+    }
+
+    .package {
+        border: solid 2px #ba722e;
+        border-radius: 15px;
+        background-color: white;
+        -webkit-box-shadow: 0 10px 20px #ba722e;
+        -moz-box-shadow: 0 10px 20px #ba722e;
+        box-shadow: 0 10px 20px #ba722e;
+    }
+
+    .packages-header {
+        margin-bottom: 45px;
+        margin-top: -40px;
+    }
+
+    .package-body {
+        padding: 10px;
+        min-height: 250px;
+    }
+
+        .package-body .description {
+            font-size: small;
+            margin-bottom: 6px;
+        }
+
+    .package-header {
+        border-bottom: 2px solid #ba722e;
+    }
+
+    .package-footer {
+        left: 0;
+        right: 0;
+        border-top: 2px solid #ba722e;
+    }
+
+        .package-footer p {
+            text-align: center;
+        }
+</style>
+
+<div class="bradcam_area bradcam_bg_2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>How to become a landlord</h3>
+                    <p>Increase your Flat profit by registering your flat with us</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <header style="margin-bottom:60px; margin-top:30px;">
+        <h2 class="text-center" style="font-size:50px;">
+            Becoming one of our landlord in 3 simple steps
+        </h2>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="destination_info">
+                    <h3 class="text-center">1. Fill in the application form</h3>
+                    <p class="paragraph">Capture your flat information on the Online form on the system and then you will recieve an email that an application was created but it will not be submitted if you have not uploaded pictures of your flat.</p>
+                    <br />
+                    <p class="paragraph">In the form you will capture the flat name, address, renting price, deposit price, flat room types and their prices.</p>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="destination_info">
+                    <h3 class="text-center">2. Upload Flat Photos </h3>
+                    <p class="paragraph">After filling up the form and recieved an email confirming that the details have been captured. The next step that you must do is to upload pictures of your flat.</p>
+                    <br />
+                    <p class="paragraph">You will add pictures to your flat gallery and upload pictures of each room type then click on the submit flat for activation.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="destination_info">
+                    <h3 class="text-center">3. Flat review/Activation</h3>
+                    <p class="paragraph">In this is when we review your  flat application , checking if the information that you have provided is correct and up-to date </p>
+                    <br />
+                    <p class="paragraph">After this step your flat  will now be active which means tenants can now see your flat  in the system and can book it, and you can manage your flat bookings and tenants in the  system </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p style="margin-top:40px;">Click <a href="~/Content/Files/prop-centralsa_userManual.pdf" download>here</a> , to download a Landlord user Manual that will assit you in your flat application <i class="fa fa-smile"></i></p>
+        </div>
+    </div>
+</section>
+
+@*<section class="popular_places_area">
+    <header class="packages-header">
+        <h2 class="text-center ">
+            There are many packages that you can choose from
+        </h2>
+    </header>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.subscriptions)
+            {
+                <div class="col-lg-4">
+                    <div class="package">
+                        <div class="package-header">
+                            <h3 class="text-center">@item.subscription.Name</h3>
+                        </div>
+                        <div class="package-body">
+                            <p class="description">@item.subscription.Description</p>
+                            <ul>
+                                @foreach (var option in item.SubscriptionItems)
+                                {
+                                    <li><p><span class="text-success"><i class="fa fa-ticket"></i></span>@option.Name</p></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="package-footer">
+                            <p>R @item.subscription.Price <span>/month</span></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>*@
+<section>
+    <a href="/Flats/startapplication" class="btn btn-lg" style=" margin-left: 50%;
+        margin-bottom: 60px;
+        margin-top: 50px;
+        background-color: #ba722e; color:white;"> Apply Now </a>
+</section>
+

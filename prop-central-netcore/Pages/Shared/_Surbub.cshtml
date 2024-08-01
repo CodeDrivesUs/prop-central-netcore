@@ -1,0 +1,13 @@
+﻿@if (ViewBag.SubcatOptions != null)
+{
+    <div class="input_field">
+    <select id="Surbub" name="Surbub" required>
+        <option data-display="">Surbub</option>
+    @foreach (var item in ViewBag.SubcatOptions)
+    {
+        <option value="@item">@item </option>
+    }
+        </select>
+     </div>
+
+}

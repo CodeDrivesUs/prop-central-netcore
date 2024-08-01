@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-prop_central_netcore-d6eb10f5-5981-4dc3-a318-ed45365ab4a7</UserSecretsId>
     <RootNamespace>prop_central_netcore</RootNamespace>
@@ -31,12 +30,21 @@
     <None Remove="Dto\PopularPlaces\" />
     <None Remove="Data\Entities\Profile\" />
     <None Remove="Dto\Flats\" />
+    <None Remove="Dto\FlatImage\" />
+    <None Remove="Data\Entities\RoomType\" />
+    <None Remove="Dto\RoomType\" />
+    <None Remove="Dto\ Profile\" />
+    <None Remove="Shared\Configuration\" />
+    <None Remove="Pages\Home\" />
+    <None Remove="Pages\Flats\" />
+    <None Remove="Models\" />
+    <None Remove="Views\" />
+    <None Remove="Views\FlatsHome\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.2" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="4.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.14" />
@@ -70,5 +78,21 @@
     <Folder Include="Dto\PopularPlaces\" />
     <Folder Include="Data\Entities\Profile\" />
     <Folder Include="Dto\Flats\" />
+    <Folder Include="Dto\FlatImage\" />
+    <Folder Include="Data\Entities\RoomType\" />
+    <Folder Include="Dto\RoomType\" />
+    <Folder Include="Dto\ Profile\" />
+    <Folder Include="Shared\Configuration\" />
+    <Folder Include="wwwroot\js\demo\" />
+    <Folder Include="wwwroot\js\vendor\" />
+    <Folder Include="Pages\Home\" />
+    <Folder Include="Pages\Flats\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\FlatsHome\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\demo\" />
+    <Content Remove="wwwroot\js\vendor\" />
   </ItemGroup>
 </Project>

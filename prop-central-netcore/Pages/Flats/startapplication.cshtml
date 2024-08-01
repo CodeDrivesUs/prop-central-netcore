@@ -1,0 +1,183 @@
+﻿@page
+@model StartApplicationModel
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Prop-Central Sa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="~/Assert/FlatApplication/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/Assert/FlatApplication/css/style.css">
+    <style>
+        .fade.in {
+            opacity: 1;
+        }
+
+        .collapse {
+            display: none;
+            background-color: antiquewhite;
+        }
+
+            .collapse.in {
+                display: block;
+            }
+
+        .collapsing {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            -webkit-transition: height 0.35s ease;
+            transition: height 0.35s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="/Flats/FlatApplication" class="back-btn">Go Back</a>
+        <div class="image-holder">
+
+        </div>
+        <form action="" id="application_form">
+            @Html.AntiForgeryToken()
+            <div class="form-row" id="input_rent" style="display:none;">
+
+            </div>
+            <div class="form-row" style="display:none;" id="input_deposit">
+
+            </div>
+            <div id="wizard">
+                <!-- SECTION 1 -->
+                <h4></h4>
+                <section>
+                    <div class="form-row">
+                        <label for="">
+                            Flat Name *
+                        </label>
+                        <input type="text" id="FlatName" name="FlatName" class="form-control">
+                    </div>
+                    <div class="form-row form-group">
+
+                        <div class="form-holder">
+                            <label for="">
+                                Email *
+                            </label>
+                            <input type="email" name="Email" class="form-control">
+                        </div>
+                        <div class="form-holder">
+                            <label for="">
+                                TelePhone Number *
+                            </label>
+                            <input type="tel" name="PhoneNumber" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label for="">
+                            Address *
+                        </label>
+                        <input type="text" name="Address" class="form-control" placeholder="Street address" style="margin-bottom: 20px">
+
+                    </div>
+                    <div class="form-row">
+                        <label for="">
+                            Amenities *
+                        </label>
+                        <a href="#" data-target="#collaps_amenities" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collaps_amenities">
+                            <input type="text" id="display_amenity" readonly class="form-control" placeholder="Amenities" style="margin-bottom: 20px">
+                        </a>
+                        <div class="collapse" id="collaps_amenities">
+                            <ul>
+                                @foreach (var item in Model.createUpdateFlat.ListAmenities)
+                                {
+                                    <li><input type="checkbox" name="Amenities" value="@item.Id" /> <span>@item.Name</span></li>
+                                }
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <label for="">
+                            Room Types *
+                        </label>
+                        <a href="#" data-target="#collaps_roomtypes" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collaps_roomtypes">
+                            <input type="text" readonly class="form-control" placeholder="Room Types" style="margin-bottom: 20px">
+                        </a>
+                        <div class="collapse" id="collaps_roomtypes">
+                            <ul>
+                                @foreach (var item in Model.createUpdateFlat.ListRoomTypes)
+                                {
+                                    <li style="margin:3px;"><input type="checkbox" id="RoomTypes" name="RoomTypes" value="@item.Id" /><strong> @item.Name</strong> -<span>@item.Description</span></li>
+                                }
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row form-group">
+
+                        <div class="form-holder">
+                            <label for="">
+                                Rent *
+                            </label>
+                            <input type="text" name="Rent" class="form-control">
+                        </div>
+                        <div class="form-holder">
+                            <label for="">
+                                Deposit *
+                            </label>
+                            <input type="text" name="Deposit" class="form-control">
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                    <div id="room_template">
+
+                    </div>
+                </section>
+
+                <!-- SECTION 3 -->
+                <h4></h4>
+                <section>
+                    <div id="flat_preview"></div>
+                </section>
+                <!-- SECTION 4 -->
+                <h4></h4>
+                <section>
+                    <h2>Success</h2>
+                    <img src="~/Assert/FlatApplication/images/undraw_celebration_0jvk.png" height="400" width="500" />
+                    <p>One more step to go which is uploading of pictures</p>
+                    <input type="hidden" name="FlatId" id="FlatId" />
+                </section>
+            </div>
+        </form>
+    </div>
+
+    <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- JQUERY STEP -->
+    <script src="~/Assert/FlatApplication/js/jquery.steps.js"></script>
+
+    <script src="~/Assert/FlatApplication/js/main.js"></script>
+
+    <script src="~/Assert/FlatApplication/js/collaps.js"></script>
+    <script>var populateamenities = function (name) {
+            var value = $("#display_amenity").val();
+            if (value == null) {
+                $("#display_amenity").val(name);
+            }
+            else {
+                $("#display_amenity").val("," + name);
+            }
+        }</script>
+</body>
+</html>

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace prop_central_netcore.Dto.Amenities
 {
-	public class AmenitiesDto:BasePrimaryKeyDto
+	public class AmenitiesDto:BaseImageUrlDto
 	{
-		public AmenitiesDto()
-		{
-		}
-	}
+        [Required]
+        public string Name { get; set; }
+    }
 }
 

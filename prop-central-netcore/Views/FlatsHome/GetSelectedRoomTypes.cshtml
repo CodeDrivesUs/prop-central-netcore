@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+@model prop_central_netcore.Dto.Flats.SelectedRoomTypesDto
+@if (Model._roomtypeIds.Count != 0)
+{
+    <div class="row">
+        @foreach (var item in Model._roomtypeIds)
+        {
+
+            <div class="col-md-4">
+
+                <div class="form-row form-group">
+                    <strong>@item.Name</strong>
+                    <div class="form-holder">
+                        <label for="">
+                            Rent *
+                        </label>
+                        <input type="text" id="@item.Id" name="RentRooms" class="form-control">
+                    </div>
+                    <div class="form-holder">
+                        <label for="">
+                            Deposit *
+                        </label>
+                        <input type="text" id="@item.Id" name="DepositRooms" class="form-control">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+}

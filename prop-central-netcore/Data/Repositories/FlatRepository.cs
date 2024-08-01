@@ -138,7 +138,7 @@ namespace prop_central_netcore.Data.Repositories
             var parameters = new SqlParameter[]
             {
                new SqlParameter("@flatStatusId", (int)FlatStatusEnum.Active),
-            new SqlParameter("@imageStatusId", (int)FlatImagesEnum.ProfilePicture)
+            new SqlParameter("@imageStatusId", (int)FlatImagesEnum.Gallery)
         };
 
             using (var command = await DbCommandsAndConnection.CreateCommandAsync("GetLatestFlats", CommandType.StoredProcedure, parameters))
