@@ -1,5 +1,6 @@
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -32,31 +33,42 @@ public class Program
         builder.Services.AddAuthentication(options =>
         {
             options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
         })
-.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
-.AddOpenIdConnect(
-    OpenIdConnectDefaults.AuthenticationScheme,
-    options =>
-    {
-        options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.SignOutScheme = OpenIdConnectDefaults.AuthenticationScheme;
-        options.Authority = "https://propcentralsa.bsite.net";
-        options.ClientId = "interactive";
-        options.ClientSecret = "ClientSecret1";
-        options.RequireHttpsMetadata = false; 
-        options.ResponseType = "code";
-        options.SaveTokens = true;
-        options.GetClaimsFromUserInfoEndpoint = true;
-        options.Scope.Add("openid");
-        options.Scope.Add("profile");
-        options.TokenValidationParameters = new TokenValidationParameters()//Maps properties from jwtClaims
-        {
-            NameClaimType = JwtClaimTypes.Email,
-            RoleClaimType = JwtClaimTypes.Role
-        };
-    }
-);
+       .AddCookie()
+       .AddGoogle(options =>
+       {
+           options.ClientId = "733975701128-kecq0uhevqueeq5u1ic6vtv1sl8e1f3n.apps.googleusercontent.com";
+           options.ClientSecret = "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";
+       });
+//        builder.Services.AddAuthentication(options =>
+//        {
+//            options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//            options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+//        })
+//.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+//.AddOpenIdConnect(
+//    OpenIdConnectDefaults.AuthenticationScheme,
+//    options =>
+//    {
+//        options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//        options.SignOutScheme = OpenIdConnectDefaults.AuthenticationScheme;
+//        options.Authority = "https://propcentralsa.bsite.net";
+//        options.ClientId = "interactive";
+//        options.ClientSecret = "ClientSecret1";
+//        options.RequireHttpsMetadata = false; 
+//        options.ResponseType = "code";
+//        options.SaveTokens = true;
+//        options.GetClaimsFromUserInfoEndpoint = true;
+//        options.Scope.Add("openid");
+//        options.Scope.Add("profile");
+//        options.TokenValidationParameters = new TokenValidationParameters()//Maps properties from jwtClaims
+//        {
+//            NameClaimType = JwtClaimTypes.Email,
+//            RoleClaimType = JwtClaimTypes.Role
+//        };
+//    }
+//);
 
 
         builder.Services.AddEndpointsApiExplorer();
